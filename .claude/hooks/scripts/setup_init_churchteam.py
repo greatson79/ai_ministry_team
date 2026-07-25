@@ -112,14 +112,15 @@ def main():
         f"{agents_base}/execution-team/ 폴더를 확인하세요."
     ))
 
-    # 4-3. data 폴더 존재
+    # 4-3. data 폴더 기본 파일 (선택 — 사용자가 직접 업로드, 없어도 진행)
     data_files = ["data/church-calendar.md", "data/sermon-data.md"]
     data_ok = all(os.path.exists(os.path.join(BASE, f)) for f in data_files)
-    results.append(check(
-        "data 폴더 기본 파일 존재",
+    # 경고만 표시하고 Bootstrap을 차단하지 않는다(템플릿: 교회 데이터는 나중에 업로드)
+    check(
+        "data 폴더 기본 파일(선택)",
         data_ok,
-        "data/ 폴더를 확인하세요."
-    ))
+        "data/church-calendar.md·sermon-data.md는 사용자가 업로드합니다(없어도 진행 가능)."
+    )
 
     # 4-4. reports 폴더 3종 존재 (비어있어도 폴더 자체는 있어야 함)
     report_dirs = ["reports/strategy", "reports/planning", "reports/alignment-check"]
