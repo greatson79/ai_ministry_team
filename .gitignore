@@ -1,0 +1,40 @@
+# ───────── 교회 실데이터 (사용자 전용 · 공개 제외) ─────────
+# 시스템 템플릿만 공개하고, 각 교회의 실제 자료는 추적하지 않는다.
+pastor/philosophy/*
+pastor/reference/*
+pastor/annual-plans/*
+data/*
+reports/planning/*
+reports/strategy/*
+reports/alignment-check/*
+output/*
+
+# 단, 각 폴더의 업로드 가이드(README)와 구조 유지 파일은 유지
+!pastor/philosophy/README.md
+!pastor/reference/README.md
+!pastor/annual-plans/README.md
+!data/README.md
+!reports/planning/README.md
+!reports/strategy/README.md
+!reports/alignment-check/README.md
+!output/README.md
+!**/.gitkeep
+
+# ───────── 런타임 로그·스냅샷 (교회별 생성물) ─────────
+runtime/pacs-logs/*
+runtime/pastoral-decision-logs/*
+runtime/review-logs/*
+runtime/verification-logs/*
+runtime/translations/*
+runtime/dual-sot-snapshots/*
+!runtime/**/.gitkeep
+
+# ───────── 캐시·시스템 파일 ─────────
+__pycache__/
+*.pyc
+*.pyo
+.DS_Store
+.moai/
+
+# ───────── 세션 상태 (교회별 런타임 값) ─────────
+# state.yaml·workflow-state.yaml은 초기값(null)으로 커밋되며, 런타임 값은 로컬에만.
